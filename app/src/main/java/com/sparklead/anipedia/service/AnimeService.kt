@@ -7,4 +7,6 @@ interface AnimeService {
 
     suspend fun getAllAnimeList() : AnimeModel
 
+    suspend fun getTopAnimeList() : AnimeModel
+
 }

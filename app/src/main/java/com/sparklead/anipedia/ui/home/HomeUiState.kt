@@ -6,8 +6,10 @@ sealed class HomeUiState {
 
     data object Loading : HomeUiState()
 
-    data class Success(val animeList: List<AnimeResponse>) : HomeUiState()
+    data class AllAnimeListSuccess(val animeList: List<AnimeResponse>) : HomeUiState()
 
     data class Error(val message: String) : HomeUiState()
+
+    data class TopAnimeSuccess(val list : List<AnimeResponse>) : HomeUiState()
 
 }

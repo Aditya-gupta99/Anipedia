@@ -8,4 +8,6 @@ interface AnimeListRepository {
 
     fun getAllAnimeList() : Flow<AnimeModel>
 
+    fun getTopAnimeList() : Flow<AnimeModel>
+
 }

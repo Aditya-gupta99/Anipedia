@@ -22,4 +22,15 @@ class AnimeServiceImp(private val client: HttpClient) : AnimeService {
             throw e
         }
     }
+
+    override suspend fun getTopAnimeList(): AnimeModel {
+        return try {
+            client.get {
+                url(HttpRoutes.TOP_ANIME_LIST)
+                contentType(ContentType.Application.Json)
+            }
+        } catch (e : Exception) {
+            throw e
+        }
+    }
 }

@@ -9,12 +9,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.carousel.CarouselLayoutManager
+import com.google.android.material.carousel.MultiBrowseCarouselStrategy
 import com.sparklead.anipedia.R
 import com.sparklead.anipedia.databinding.FragmentHomeBinding
 import com.sparklead.anipedia.model.all_anime.AnimeResponse
 import com.sparklead.anipedia.ui.adapter.AnimeListAdapter
+import com.sparklead.anipedia.ui.adapter.CarouselAdapter
+import com.sparklead.anipedia.utils.CarouselItem
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -37,6 +40,7 @@ class HomeFragment : Fragment() {
         navBar.visibility = View.VISIBLE
 
         viewModel.getAllAnimeList()
+        viewModel.getTopAnimeList()
 
         return binding.root
     }
@@ -50,25 +54,63 @@ class HomeFragment : Fragment() {
                     is HomeUiState.Error -> {
                         onError(it.message)
                     }
+
                     is HomeUiState.Loading -> {
 
                     }
-                    is HomeUiState.Success -> {
-                        onSuccess(it.animeList)
+
+                    is HomeUiState.AllAnimeListSuccess -> {
+                        onAllAnimeListSuccess(it.animeList)
+                    }
+
+                    is HomeUiState.TopAnimeSuccess -> {
+                        onTopAnimeListSuccess(it.list)
                     }
                 }
             }
         }
     }
 
-    private fun onSuccess(animeList: List<AnimeResponse>) {
+    private fun onAllAnimeListSuccess(animeList: List<AnimeResponse>) {
         adapter = AnimeListAdapter(animeList)
         binding.rvAnimeList.adapter = adapter
-        binding.rvAnimeList.layoutManager = GridLayoutManager(requireActivity(),2)
+        binding.rvAnimeList.layoutManager = GridLayoutManager(requireActivity(), 2)
     }
 
     private fun onError(message: String) {
-        Toast.makeText(requireContext(),message,Toast.LENGTH_LONG).show()
+        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+    }
+
+    private fun onTopAnimeListSuccess(list: List<AnimeResponse>) {
+        val multiBrowseCenteredCarouselLayoutManager =
+            CarouselLayoutManager(MultiBrowseCarouselStrategy())
+        binding.carouselRvTopAnime.layoutManager = multiBrowseCenteredCarouselLayoutManager
+        binding.carouselRvTopAnime.isNestedScrollingEnabled = false
+
+
+        val adapter = CarouselAdapter(
+            object : CarouselAdapter.CarouselItemListener {
+                override fun onItemClicked(item: CarouselItem, position: Int) {
+                    binding.carouselRvTopAnime.scrollToPosition(
+                        position
+                    )
+                }
+            }, R.layout.item_carousel_anime
+        )
+
+        val carouselItem: MutableList<CarouselItem> = mutableListOf()
+        for (item in list) {
+            item.images?.jpg?.large_image_url?.let {
+                item.title?.let { it1 ->
+                    CarouselItem(
+                        it,
+                        it1
+                    )
+                }
+            }?.let { carouselItem.add(it) }
+        }
+        binding.carouselRvTopAnime.adapter = adapter
+        adapter.submitList(carouselItem)
     }
 
     override fun onDestroy() {
