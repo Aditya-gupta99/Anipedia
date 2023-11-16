@@ -6,7 +6,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.sparklead.anipedia.databinding.ActivityDashboardBinding
 
-class MainActivity : AppCompatActivity() {
+class DashboardActivity : AppCompatActivity() {
 
     private var _binding: ActivityDashboardBinding? = null
     private val binding get() = _binding!!

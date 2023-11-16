@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.sparklead.anipedia.R
 import com.sparklead.anipedia.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -17,6 +19,9 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        navBar.visibility = View.VISIBLE
 
         return binding.root
     }
