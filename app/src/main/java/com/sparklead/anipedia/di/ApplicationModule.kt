@@ -1,5 +1,7 @@
 package com.sparklead.anipedia.di
 
+import com.sparklead.anipedia.service.AnimeService
+import com.sparklead.anipedia.serviceImp.AnimeServiceImp
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,7 +28,6 @@ object ApplicationModule {
             install(WebSockets)
             install(JsonFeature) {
                 serializer = KotlinxSerializer(Json {
-                    encodeDefaults = true
                     ignoreUnknownKeys = true
                     isLenient = true
                 })
@@ -39,4 +40,8 @@ object ApplicationModule {
             }
         }
     }
+
+    @Provides
+    @Singleton
+    fun providesAnimeService(client: HttpClient): AnimeService = AnimeServiceImp(client)
 }

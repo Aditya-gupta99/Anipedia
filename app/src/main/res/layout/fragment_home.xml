@@ -56,9 +56,11 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/anime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16sp"
+            android:layout_marginTop="16sp"
+            android:layout_marginStart="16sp"
             android:fontFamily="@font/outfit_regular"
             android:text="Anime"
             android:textSize="20sp" />
