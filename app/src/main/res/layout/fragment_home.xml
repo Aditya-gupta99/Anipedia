@@ -1,13 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_register_activity"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home" />
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/outfit_medium"
+            android:text="Anipedia"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16sp"
+            android:fontFamily="@font/outfit_regular"
+            android:text="Top Anime"
+            android:textSize="20sp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/carousel_rv_top_anime"
+            android:layout_width="match_parent"
+            android:layout_height="150sp"
+            android:layout_marginHorizontal="10sp"
+            android:layout_marginVertical="16sp"
+            android:clipChildren="false"
+            android:clipToPadding="false" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16sp"
+            android:fontFamily="@font/outfit_regular"
+            android:text="Anime"
+            android:textSize="20sp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_anime_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="10sp"
+            android:layout_marginVertical="16sp"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_anime" />
+
+    </LinearLayout>
+
+</LinearLayout>
