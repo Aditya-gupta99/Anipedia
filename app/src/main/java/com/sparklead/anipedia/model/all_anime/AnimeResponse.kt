@@ -1,11 +1,14 @@
 package com.sparklead.anipedia.model.all_anime
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
 
 @Parcelize
 @Serializable
+@Entity(tableName = "Anime")
 data class AnimeResponse(
 
     val airing: Boolean?,
@@ -24,6 +27,7 @@ data class AnimeResponse(
 
     val images: Images?,
 
+    @PrimaryKey(autoGenerate = true)
     val mal_id: Int?,
 
     val members: Int?,

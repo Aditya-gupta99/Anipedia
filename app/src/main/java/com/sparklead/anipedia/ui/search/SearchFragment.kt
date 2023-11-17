@@ -12,6 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.sparklead.anipedia.R
 import com.sparklead.anipedia.databinding.FragmentSearchBinding
 import com.sparklead.anipedia.model.all_anime.AnimeResponse
 import com.sparklead.anipedia.ui.adapter.AnimeListAdapter
@@ -58,6 +60,9 @@ class SearchFragment : Fragment() {
                 }
             }
         }
+
+        val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        navBar.visibility = View.VISIBLE
 
         binding.svAnime.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(text: String?): Boolean {

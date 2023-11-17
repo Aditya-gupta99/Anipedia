@@ -82,4 +82,9 @@ dependencies {
 
     //circular progress bar
     implementation("com.github.guilhe:circular-progress-view:2.0.0")
+
+    //Room Database
+    implementation("androidx.room:room-runtime:2.6.0")
+    kapt("androidx.room:room-compiler:2.6.0")
+    implementation("androidx.room:room-ktx:2.6.0")
 }

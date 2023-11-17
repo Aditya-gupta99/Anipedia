@@ -13,14 +13,14 @@
         android:id="@+id/searchFragment"
         android:checked="true"
         android:icon="@drawable/baseline_search_24"
-        android:title="List"
+        android:title="Search"
         app:showAsAction="always"/>
 
     <item
         android:id="@+id/favoritesFragment"
         android:checked="true"
         android:icon="@drawable/baseline_favorite_border_24"
-        android:title="Profile"
+        android:title="Favorites"
         app:showAsAction="always"/>
 
 </menu>
