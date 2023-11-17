@@ -10,6 +10,8 @@ import com.sparklead.anipedia.utils.GlideLoader
 class AnimeListAdapter(private val list: List<AnimeResponse>) :
     RecyclerView.Adapter<AnimeListAdapter.AnimeListViewHolder>() {
 
+    var onItemClick: ((AnimeResponse) -> Unit)? = null
+
     inner class AnimeListViewHolder(val binding: ItemAnimeBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -36,6 +38,9 @@ class AnimeListAdapter(private val list: List<AnimeResponse>) :
                     GlideLoader(holder.itemView.context).loadAnimePicture(
                         it,binding.ivAnime
                     )
+                }
+                binding.cvAnime.setOnClickListener {
+                    onItemClick?.invoke(this)
                 }
             }
         }

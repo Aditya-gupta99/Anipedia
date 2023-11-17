@@ -39,5 +39,11 @@ internal class CarouselItemViewHolder(itemView: View, listener: CarouselAdapter.
                 override fun onLoadCleared(placeholder: Drawable?) {
                 }
             })
+        itemView.setOnClickListener {
+            listener.onItemClicked(
+                item,
+                adapterPosition
+            )
+        }
     }
 }

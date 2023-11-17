@@ -23,20 +23,34 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment2_to_searchFragment"
-            app:destination="@id/searchFragment" />
-        <action
-            android:id="@+id/action_homeFragment2_to_favoriteFragment"
-            app:destination="@id/favoritesFragment" />
+            android:id="@+id/action_homeFragment_to_animeDetailFragment"
+            app:destination="@id/animeDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.sparklead.anipedia.ui.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_animeDetailFragment"
+            app:destination="@id/animeDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.sparklead.anipedia.ui.favorite.FavoriteFragment"
         android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/action_favoritesFragment_to_animeDetailFragment"
+            app:destination="@id/animeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/animeDetailFragment"
+        android:name="com.sparklead.anipedia.ui.detail.AnimeDetailFragment"
+        android:label="fragment_anime_detail"
+        tools:layout="@layout/fragment_anime_detail" >
+        <argument
+            android:name="AnimeDetails"
+            app:argType="com.sparklead.anipedia.model.all_anime.AnimeResponse" />
+    </fragment>
 </navigation>

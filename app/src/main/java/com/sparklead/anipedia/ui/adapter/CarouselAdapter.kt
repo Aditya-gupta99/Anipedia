@@ -37,7 +37,7 @@ internal class CarouselAdapter(private val listener: CarouselItemListener, priva
             }
     }
 
-    internal interface CarouselItemListener {
+    interface CarouselItemListener {
         fun onItemClicked(item: CarouselItem, position: Int)
     }
 }
