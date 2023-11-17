@@ -8,7 +8,6 @@ import kotlinx.serialization.Serializable
 
 @Parcelize
 @Serializable
-@Entity(tableName = "Anime")
 data class AnimeResponse(
 
     val airing: Boolean?,
@@ -22,8 +21,6 @@ data class AnimeResponse(
     val episodes: Int?,
 
     val favorites: Int?,
-
-    val genres: List<Genre?>?,
 
     val images: Images?,
 
