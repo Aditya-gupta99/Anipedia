@@ -57,7 +57,7 @@ object ApplicationModule {
             appContext,
             AnimeDatabase::class.java,
             "Anime"
-        ).build()
+        ).fallbackToDestructiveMigration().build()
     }
 
 

@@ -15,8 +15,6 @@ data class AnimeDb(
 
     val episodes: Int?,
 
-    val favorites: Int?,
-
     val images: String,
 
     val rank: Int?,

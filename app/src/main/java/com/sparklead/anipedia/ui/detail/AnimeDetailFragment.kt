@@ -122,7 +122,6 @@ class AnimeDetailFragment : Fragment() {
             mal_id = this.mal_id,
             background = this.background,
             episodes = this.episodes,
-            favorites = this.favorites,
             images = this.images?.jpg?.large_image_url.toString(),
             rank = this.rank,
             score = this.score,

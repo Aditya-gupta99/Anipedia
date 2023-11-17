@@ -18,4 +18,8 @@ class AnimeDbRepositoryImp @Inject constructor(private val animeDao: AnimeDao) :
     override suspend fun getAnimeCount(title: String): Flow<Int> {
         return animeDao.getAnimeCount(title)
     }
+
+    override fun getAllAnime(): Flow<List<AnimeDb>> {
+        return animeDao.getSaveAnime()
+    }
 }

@@ -11,4 +11,5 @@ interface AnimeDbRepository {
 
     suspend fun getAnimeCount(title: String) : Flow<Int>
 
+    fun getAllAnime() : Flow<List<AnimeDb>>
 }

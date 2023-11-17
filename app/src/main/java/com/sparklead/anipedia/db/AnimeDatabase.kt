@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.sparklead.anipedia.dao.AnimeDao
 import com.sparklead.anipedia.model.AnimeDb
 
-@Database(entities = [AnimeDb::class], version = 1)
+@Database(entities = [AnimeDb::class], version = 2)
 abstract class AnimeDatabase : RoomDatabase() {
 
     abstract fun animeDao(): AnimeDao
