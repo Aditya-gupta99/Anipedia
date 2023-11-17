@@ -22,11 +22,9 @@ class FavoriteViewModel @Inject constructor(private val repository: AnimeDbRepos
         repository.getAllAnime()
             .catch {
                 _favoriteUiState.value = FavoriteUiState.Error(it.message.toString())
-                Log.e("@@@",it.toString())
             }
             .collect {
                 _favoriteUiState.value = FavoriteUiState.Success(it)
-                Log.e("@@@",it.toString())
             }
     }
 

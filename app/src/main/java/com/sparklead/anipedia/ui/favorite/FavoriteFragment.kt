@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.sparklead.anipedia.R
 import com.sparklead.anipedia.databinding.FragmentFavoriteBinding
 import com.sparklead.anipedia.model.AnimeDb
 import com.sparklead.anipedia.model.all_anime.AnimeResponse
@@ -34,6 +36,10 @@ class FavoriteFragment : Fragment() {
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this)[FavoriteViewModel::class.java]
         viewModel.getAllAnimeList()
+
+        val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        navBar.visibility = View.VISIBLE
+
         return binding.root
     }
 
@@ -57,6 +63,7 @@ class FavoriteFragment : Fragment() {
     }
 
     private fun onSuccessList(list: List<AnimeDb>) {
+        if(list.isEmpty()) binding.tvEmptyList.visibility = View.VISIBLE else View.GONE
         val listAnime = ArrayList<AnimeResponse>()
         list.forEach {
             listAnime.add(it.toAnimeResponse())

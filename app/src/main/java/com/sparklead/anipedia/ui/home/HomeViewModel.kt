@@ -2,6 +2,8 @@ package com.sparklead.anipedia.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sparklead.anipedia.utils.Constants
+import com.sparklead.anipedia.utils.PrefManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,10 +13,16 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val repository: AnimeListRepository) : ViewModel() {
+class HomeViewModel @Inject constructor(private val repository: AnimeListRepository,private val prefManager: PrefManager) : ViewModel() {
 
     private val _homeUiState = MutableStateFlow<HomeUiState>(HomeUiState.Loading)
     val homeUiState: StateFlow<HomeUiState> = _homeUiState
+
+    fun saveFirstLogin() {
+        viewModelScope.launch {
+            prefManager.saveBooleanValue(Constants.FIRST_USER,true)
+        }
+    }
 
     fun getAllAnimeList() {
         _homeUiState.value = HomeUiState.Loading

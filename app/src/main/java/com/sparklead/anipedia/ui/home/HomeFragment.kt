@@ -19,8 +19,11 @@ import com.sparklead.anipedia.model.all_anime.AnimeResponse
 import com.sparklead.anipedia.ui.adapter.AnimeListAdapter
 import com.sparklead.anipedia.ui.adapter.CarouselAdapter
 import com.sparklead.anipedia.utils.CarouselItem
+import com.sparklead.anipedia.utils.PrefManager
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -42,6 +45,7 @@ class HomeFragment : Fragment() {
 
         viewModel.getAllAnimeList()
         viewModel.getTopAnimeList()
+        viewModel.saveFirstLogin()
 
         return binding.root
     }
