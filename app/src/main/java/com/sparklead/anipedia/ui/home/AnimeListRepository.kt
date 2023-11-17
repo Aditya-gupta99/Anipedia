@@ -10,4 +10,6 @@ interface AnimeListRepository {
 
     fun getTopAnimeList() : Flow<AnimeModel>
 
+    fun getSearch(text: String) : Flow<AnimeModel>
+
 }

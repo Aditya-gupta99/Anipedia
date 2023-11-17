@@ -21,4 +21,10 @@ class AnimeListRepositoryImp @Inject constructor(private val service: AnimeServi
             emit(service.getTopAnimeList())
         }
     }
+
+    override fun getSearch(text: String): Flow<AnimeModel> {
+        return flow {
+            emit(service.getSearchAnimeList(text))
+        }
+    }
 }

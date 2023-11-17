@@ -7,4 +7,6 @@ object HttpRoutes {
     const val ALL_ANIME_LIST = "$BASE_URL/anime"
 
     const val TOP_ANIME_LIST = "$BASE_URL/top/anime"
+
+    const val SEARCH_ANIME_LIST = "$BASE_URL/anime"
 }
