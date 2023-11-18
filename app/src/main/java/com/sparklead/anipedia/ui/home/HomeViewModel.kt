@@ -2,6 +2,8 @@ package com.sparklead.anipedia.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sparklead.anipedia.model.OfflineAnimeDb
+import com.sparklead.anipedia.model.OfflineTopAnimeDb
 import com.sparklead.anipedia.utils.Constants
 import com.sparklead.anipedia.utils.PrefManager
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,14 +15,17 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val repository: AnimeListRepository,private val prefManager: PrefManager) : ViewModel() {
+class HomeViewModel @Inject constructor(
+    private val repository: AnimeListRepository,
+    private val prefManager: PrefManager
+) : ViewModel() {
 
     private val _homeUiState = MutableStateFlow<HomeUiState>(HomeUiState.Loading)
     val homeUiState: StateFlow<HomeUiState> = _homeUiState
 
     fun saveFirstLogin() {
         viewModelScope.launch {
-            prefManager.saveBooleanValue(Constants.FIRST_USER,true)
+            prefManager.saveBooleanValue(Constants.FIRST_USER, true)
         }
     }
 
@@ -48,4 +53,31 @@ class HomeViewModel @Inject constructor(private val repository: AnimeListReposit
                 }
         }
     }
+
+    fun saveOfflineAnime(list: List<OfflineAnimeDb>) = viewModelScope.launch {
+        repository.saveOfflineAnime(list)
+    }
+
+    fun getOfflineDb() = viewModelScope.launch {
+        repository.getOfflineAnime()
+            .catch {
+                _homeUiState.value = HomeUiState.Error(it.message.toString())
+            }.collect {
+                _homeUiState.value = HomeUiState.AllAnimeDbListSuccess(it)
+            }
+    }
+
+    fun saveOfflineTopAnime(list: List<OfflineTopAnimeDb>) = viewModelScope.launch {
+        repository.saveOfflineTopAnime(list)
+    }
+
+    fun getOfflineTopAnime() = viewModelScope.launch {
+        repository.getOfflineTopAnime()
+            .catch {
+                _homeUiState.value = HomeUiState.Error(it.message.toString())
+            }.collect {
+                _homeUiState.value = HomeUiState.TopAnimeDbSuccess(it)
+            }
+    }
+
 }

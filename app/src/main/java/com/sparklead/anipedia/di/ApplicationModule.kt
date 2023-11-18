@@ -3,6 +3,8 @@ package com.sparklead.anipedia.di
 import android.content.Context
 import androidx.room.Room
 import com.sparklead.anipedia.dao.AnimeDao
+import com.sparklead.anipedia.dao.OfflineAnimeDao
+import com.sparklead.anipedia.dao.OfflineTopAnimeDao
 import com.sparklead.anipedia.db.AnimeDatabase
 import com.sparklead.anipedia.service.AnimeService
 import com.sparklead.anipedia.serviceImp.AnimeServiceImp
@@ -65,5 +67,17 @@ object ApplicationModule {
     @Singleton
     fun provideAnimeDao(animeDatabase: AnimeDatabase): AnimeDao {
         return animeDatabase.animeDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideOfflineAnimeDao(animeDatabase: AnimeDatabase): OfflineAnimeDao {
+        return animeDatabase.offlineDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideTopOfflineAnimeDao(animeDatabase: AnimeDatabase): OfflineTopAnimeDao {
+        return animeDatabase.topOfflineDao()
     }
 }

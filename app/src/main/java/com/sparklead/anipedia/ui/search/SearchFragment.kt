@@ -17,6 +17,7 @@ import com.sparklead.anipedia.R
 import com.sparklead.anipedia.databinding.FragmentSearchBinding
 import com.sparklead.anipedia.model.all_anime.AnimeResponse
 import com.sparklead.anipedia.ui.adapter.AnimeListAdapter
+import com.sparklead.anipedia.utils.Network
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -34,7 +35,9 @@ class SearchFragment : Fragment() {
     ): View {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this)[SearchViewModel::class.java]
-        viewModel.getSearchAnimeList("")
+        if(Network.isOnline(requireContext())) viewModel.getSearchAnimeList("") else {
+            Toast.makeText(requireContext(),"Search option is unavailable in offline",Toast.LENGTH_SHORT).show()
+        }
         return binding.root
     }
 
@@ -69,7 +72,7 @@ class SearchFragment : Fragment() {
                 handler.removeCallbacksAndMessages(null)
                 handler.postDelayed({
                     animeFilter(text)
-                }, 200)
+                }, 300)
                 return true
             }
 
@@ -95,6 +98,6 @@ class SearchFragment : Fragment() {
     }
 
     private fun animeFilter(text: String?) {
-        text?.let { viewModel.getSearchAnimeList(it) }
+        if(Network.isOnline(requireContext())) text?.let { viewModel.getSearchAnimeList(it) }
     }
 }
