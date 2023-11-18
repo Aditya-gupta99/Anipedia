@@ -44,19 +44,19 @@ class OnboardingFragment : Fragment() {
         onboardingAdapter = IntroViewPagerAdapter(
             listOf(
                 OnboardingItem(
-                    onboardingImage = R.drawable.intro_one,
+                    onboardingImage = R.drawable.intro_first,
                     title = "Welcome To Anipedia",
                     description = "Your Ultimate Guide to Explore, Discover, and Immerse in Every Detail!"
                 ),
                 OnboardingItem(
-                    onboardingImage = R.drawable.intro_two,
-                    title = "Dexa Scan Models",
-                    description = "just ask your Career Doubt in live counsellor interaction"
+                    onboardingImage = R.drawable.intro_second,
+                    title = "Favorite Anime",
+                    description = "Unlock the ultimate anime journey by saving your favorite shows!"
                 ),
                 OnboardingItem(
-                    onboardingImage = R.drawable.intro_three,
-                    title = "Scan Qr and Pay Online",
-                    description = "Explore numerous career options available at on place."
+                    onboardingImage = R.drawable.intro_third,
+                    title = "Offline support",
+                    description = "You can enjoy your favorite anime even offline!"
                 )
             )
         )
