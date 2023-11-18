@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_app"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.favorite.FavoriteFragment">
 
@@ -19,7 +20,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/outfit_medium"
             android:text="Favorites Anime"
-            android:textColor="@color/black"
+            android:textColor="@color/light_mint"
             android:textSize="24sp" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -30,7 +31,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/outfit_medium"
         android:text="Favorites Anime is Empty!"
-        android:textColor="@color/black"
+        android:textColor="@color/light_mint"
         android:textSize="20sp"
         android:textAlignment="center"
         android:visibility="gone"

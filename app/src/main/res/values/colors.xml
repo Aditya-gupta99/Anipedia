@@ -5,4 +5,14 @@
 
     <color name="light_blue">#99c0fe</color>
 
+    <color name="light_red">#E50914</color>
+    <color name="dark_red">#831010</color>
+    <color name="dark_grey">#221F1F</color>
+    <color name="light_grey">#7C7A7A</color>
+    <color name="black_light">#141414</color>
+
+    <color name="dark_app">#03001C</color>
+    <color name="dark_blue">#090438</color>
+    <color name="light_mint">#B6EADA</color>
+    <color name="sea">#6D67E4</color>
 </resources>

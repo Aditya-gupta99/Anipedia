@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.carousel.CarouselLayoutManager
+import com.google.android.material.carousel.HeroCarouselStrategy
 import com.google.android.material.carousel.MultiBrowseCarouselStrategy
 import com.sparklead.anipedia.R
 import com.sparklead.anipedia.databinding.FragmentHomeBinding
@@ -206,7 +207,7 @@ class HomeFragment : Fragment() {
 
     private fun first(list: List<AnimeResponse>) {
         multiBrowseCenteredCarouselLayoutManager =
-            CarouselLayoutManager(MultiBrowseCarouselStrategy())
+            CarouselLayoutManager(HeroCarouselStrategy())
         binding.carouselRvTopAnime.layoutManager = multiBrowseCenteredCarouselLayoutManager
         binding.carouselRvTopAnime.isNestedScrollingEnabled = false
 

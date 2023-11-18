@@ -34,7 +34,7 @@ class SplashScreenFragment : Fragment() {
         _binding = FragmentSplashScreenBinding.inflate(inflater, container, false)
 
         val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        navBar.visibility = View.INVISIBLE
+        navBar.visibility = View.GONE
 
         var status = false
         lifecycleScope.launch {

@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_anime"
             android:layout_width="match_parent"
@@ -40,7 +39,7 @@
                 android:textAlignment="center"
                 android:fontFamily="@font/outfit_light"
                 android:text="Anime Name"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:maxLines="1"
                 />
 

@@ -15,7 +15,7 @@ class GlideLoader (private val context:Context) {
             Glide
                 .with(context)
                 .load(image)
-                .placeholder(R.drawable.anipedia_icon)
+                .placeholder(R.drawable.blank)
                 .into(imageView)
         } catch (e: IOException) {
             e.printStackTrace()

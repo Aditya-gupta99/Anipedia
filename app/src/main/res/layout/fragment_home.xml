@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/dark_app"
     tools:context=".ui.home.HomeFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -20,8 +21,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/outfit_medium"
             android:text="Anipedia"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
+            android:textStyle="bold"
+            android:textColor="@color/light_mint"
+            android:textSize="28sp" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -36,6 +38,7 @@
             android:layout_margin="16sp"
             android:fontFamily="@font/outfit_regular"
             android:text="Top Anime"
+            android:textColor="@color/white"
             android:textSize="20sp" />
 
 
@@ -63,6 +66,7 @@
             android:layout_marginStart="16sp"
             android:fontFamily="@font/outfit_regular"
             android:text="Anime"
+            android:textColor="@color/white"
             android:textSize="20sp" />
 
 
@@ -71,7 +75,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10sp"
-            android:layout_marginVertical="16sp"
+            android:layout_marginTop="16sp"
+            android:layout_marginBottom="6sp"
             tools:itemCount="2"
             tools:listitem="@layout/item_anime" />
 

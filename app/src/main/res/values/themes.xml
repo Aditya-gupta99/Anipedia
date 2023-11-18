@@ -1,8 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.Anipedia" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryInverse">@color/white</item>
+        <item name="colorSurface">@color/dark_app</item>
+        <item name="colorSecondaryContainer">@color/dark_app</item>
+        <item name="android:statusBarColor">@color/dark_app</item>
+        <item name="colorOnSurfaceVariant">@color/sea</item>
     </style>
 
     <style name="Theme.Anipedia" parent="Base.Theme.Anipedia" />
@@ -14,7 +17,7 @@
 
     <style name="roundedImageView2" parent="">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">30dp</item>
+        <item name="cornerSize">20dp</item>
     </style>
 
     <style name="AppSearchView" parent="Widget.AppCompat.SearchView" >

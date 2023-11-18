@@ -29,6 +29,7 @@ class AnimeServiceImp(private val client: HttpClient) : AnimeService {
         return try {
             client.get {
                 url(HttpRoutes.TOP_ANIME_LIST)
+                parameter("limit",10)
                 contentType(ContentType.Application.Json)
             }
         } catch (e : Exception) {

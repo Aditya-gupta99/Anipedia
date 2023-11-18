@@ -6,10 +6,12 @@
     android:orientation="horizontal">
 
     <com.google.android.material.card.MaterialCardView
+        app:strokeColor="@color/light_mint"
         android:id="@+id/cv_anime"
         android:layout_width="0sp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:backgroundTint="#03001C"
         android:layout_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -38,7 +40,9 @@
                     android:layout_margin="8sp"
                     android:layout_weight="4"
                     android:minLines="2"
+                    android:fontFamily="@font/outfit_medium"
                     android:maxLines="2"
+                    android:textColor="@color/white"
                     android:text="Naruto"
                     android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textSize="18sp" />
@@ -52,8 +56,9 @@
                     android:layout_marginBottom="8sp"
                     android:layout_weight="1"
                     android:text="4.9"
+                    android:fontFamily="@font/outfit_medium"
                     android:textAppearance="?attr/textAppearanceBodyMedium"
-                    android:textColor="?android:attr/textColorSecondary"
+                    android:textColor="#FFEB3B"
                     android:textSize="16sp" />
 
                 <ImageView
