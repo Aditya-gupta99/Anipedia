@@ -21,7 +21,8 @@ Dive into the World of Anime - Your Ultimate Guide to Explore, Discover, and Imm
 - XML
 - MVVM
 - View Binding
-- Flows
+- Ktor-client
+- Stateflows
 - Coroutine
 - Datastore
 - Hilt
